@@ -34,6 +34,7 @@
             --light-bg: #1b263b;
             --block-blue: #415a77;
             --block-highlight: #778da9;
+            --yellow: #FFFF00;
         }
         body {
             font-family: 'Roboto', sans-serif;
@@ -124,10 +125,10 @@
             display: inline-block;
         }
         .logo .name {
-            color: #fff; /* White for "BlockchainMall" */
+            color: #fff;
         }
         .logo .extension {
-            color: var(--ocean-blue); /* Blue for ".org" */
+            color: var(--yellow);
         }
         .tagline {
             font-size: 1.8rem;
@@ -173,7 +174,6 @@
             font-weight: 500;
             padding: 0 10px;
         }
-        /* Features Heading */
         .features-heading {
             font-size: 2.8rem;
             margin: 30px 0;
@@ -185,7 +185,6 @@
             font-weight: 800;
             letter-spacing: 1px;
         }
-        /* Signup Counter */
         .signup-counter {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
@@ -203,7 +202,6 @@
             display: block;
             margin-bottom: 5px;
         }
-        /* Payment Gateways */
         .payment-gateways {
             display: flex;
             flex-wrap: wrap;
@@ -249,47 +247,80 @@
             color: var(--cool-white);
             text-align: center;
         }
-        /* Token Utility Diagram */
         .token-flow {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 40px auto 60px;
+            position: relative;
+            width: 100%;
             max-width: 900px;
-            flex-wrap: nowrap;
-            gap: 10px;
+            margin: 40px auto 60px;
+            padding: 10px 0;
+            overflow-x: hidden;
+        }
+        .carousel-inner {
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
+            white-space: nowrap;
             padding: 0 20px;
         }
         .flow-step {
+            padding: 40px 30px;
             text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            min-width: 150px;
-            margin: 0 5px;
-            display: flex;
+            transition: all 0.3s ease;
+            min-height: 350px;
+            display: inline-flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            width: 250px;
+            min-width: 250px;
+            margin: 0 10px;
+            scroll-snap-align: center;
+            position: relative;
+            white-space: normal;
         }
         .flow-step:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
-        .flow-step i {
+        .flow-step .icon-container {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
             font-size: 2.5rem;
-            margin-bottom: 15px;
             color: var(--lime-green);
+            position: relative;
+            z-index: 1;
+        }
+        .flow-step .benefit-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--lime-green);
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
         }
         .flow-arrow {
-            font-size: 2rem;
-            margin: 0 10px;
+            font-size: 1.8rem;
+            margin: 0 5px;
             color: var(--vibrant-orange);
             flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            height: 350px;
         }
         .roadmap {
             display: flex;
@@ -425,7 +456,6 @@
             transform: scale(1.1);
             box-shadow: 0 8px 25px rgba(59, 30, 255, 0.5);
         }
-        /* Crypto Floater */
         .crypto-floater {
             position: fixed;
             top: 0;
@@ -442,7 +472,6 @@
             color: var(--lime-green);
             animation: float 15s infinite linear;
         }
-        /* Existing Styles */
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -700,7 +729,6 @@
             font-weight: 500;
             color: #aaa;
         }
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -892,22 +920,41 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .benefit-card {
+                width: 80vw;
+                margin: 0 auto;
+                padding: 30px 20px;
+                min-height: 300px;
+            }
             .token-flow {
-                flex-direction: row;
-                overflow-x: auto;
-                white-space: nowrap;
-                padding: 10px 20px;
-                scroll-behavior: smooth;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
+                padding: 10px 0;
+                margin: 40px 0 60px;
+            }
+            .carousel-inner {
+                padding: 0 20px;
             }
             .flow-step {
-                scroll-snap-align: start;
-                min-width: 140px;
+                width: calc(100vw - 40px);
+                min-width: calc(100vw - 40px);
                 margin: 0 5px;
+                padding: 30px 20px;
+                min-height: 300px;
+            }
+            .flow-step .icon-container {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+            .flow-step .benefit-title {
+                font-size: 1.6rem;
             }
             .flow-arrow {
-                margin: 0 5px;
+                font-size: 1.5rem;
+                margin: 0 3px;
+                height: 300px;
             }
             .features-heading {
                 font-size: 1.8rem;
@@ -975,8 +1022,28 @@
             .features-heading {
                 font-size: 1.6rem;
             }
+            .benefit-card {
+                width: 80vw;
+                padding: 25px 15px;
+                min-height: 280px;
+            }
             .flow-step {
-                min-width: 120px;
+                width: calc(100vw - 30px);
+                min-width: calc(100vw - 30px);
+                padding: 25px 15px;
+                min-height: 280px;
+            }
+            .flow-step .icon-container {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+            }
+            .flow-step .benefit-title {
+                font-size: 1.3rem;
+            }
+            .flow-arrow {
+                font-size: 1.2rem;
+                height: 280px;
             }
         }
         @media (max-width: 480px) {
@@ -997,7 +1064,6 @@
             }
             .benefits-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
             }
             .logo {
                 font-size: 1.8rem;
@@ -1005,8 +1071,28 @@
             .countdown-heading {
                 font-size: 1.0rem;
             }
+            .benefit-card {
+                width: 80vw;
+                padding: 20px 10px;
+                min-height: 260px;
+            }
             .flow-step {
-                min-width: 100px;
+                width: calc(100vw - 20px);
+                min-width: calc(100vw - 20px);
+                padding: 20px 10px;
+                min-height: 260px;
+            }
+            .flow-step .icon-container {
+                width: 40px;
+                height: 40px;
+                font-size: 1.6rem;
+            }
+            .flow-step .benefit-title {
+                font-size: 1.2rem;
+            }
+            .flow-arrow {
+                font-size: 1rem;
+                height: 260px;
             }
         }
     </style>
@@ -1039,7 +1125,6 @@
         <h2 class="features-heading fade-in">Features of BlockchainMall.org</h2>
         
         <div class="benefits-grid">
-            <!-- Feature cards with icons -->
             <div class="benefit-card zd-card fade-in">
                 <div class="icon-container">
                     <i class="fas fa-coins"></i>
@@ -1142,26 +1227,36 @@
             </div>
         </div>
         
-        <!-- Token Utility Diagram -->
+        <!-- Token Utility Carousel -->
         <div class="token-flow fade-in">
-            <div class="flow-step">
-                <i class="fas fa-wallet"></i>
-                <p>Acquire $ZD Tokens</p>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <i class="fas fa-shopping-cart"></i>
-                <p>Shop & Earn Rewards</p>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <i class="fas fa-chart-line"></i>
-                <p>Boost Visibility</p>
-            </div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step">
-                <i class="fas fa-gift"></i>
-                <p>Redeem Exclusive Benefits</p>
+            <div class="carousel-inner">
+                <div class="flow-step">
+                    <div class="icon-container">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="benefit-title">Acquire $ZD Tokens</h3>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="icon-container">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3 class="benefit-title">Shop & Earn Rewards</h3>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="icon-container">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="benefit-title">Boost Visibility</h3>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">
+                    <div class="icon-container">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="benefit-title">Redeem Exclusive Benefits</h3>
+                </div>
             </div>
         </div>
         
@@ -1317,6 +1412,8 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('Page loaded successfully. Checking for rendering issues.');
+
             // Countdown Timer
             const launchDate = new Date('September 30, 2025 12:00:00');
             const countdownDays = document.getElementById('countdown-days');
@@ -1355,13 +1452,9 @@
                 if (email && emailRegex.test(email)) {
                     submitBtn.disabled = true;
                     submitBtn.textContent = 'Subscribing...';
-                    
-                    // Simulate API call with delay
                     setTimeout(() => {
-                        // Update signup counter
                         const count = parseInt(signupCount.textContent.replace(/,/g, ''));
                         signupCount.textContent = (count + 1).toLocaleString();
-                        
                         alert('Thank you! We\'ll notify you when we launch.');
                         accessForm.reset();
                         submitBtn.disabled = false;
