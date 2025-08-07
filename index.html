@@ -207,7 +207,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.2); /* Increased visibility to 80% */
+            background: rgba(0, 0, 0, 0.2);
             z-index: 0;
         }
         .new-features-card .icon-container {
@@ -225,19 +225,21 @@
             z-index: 1;
         }
         .new-features-card .benefit-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 15px;
             color: var(--lime-green);
-            font-weight: 800;
+            font-weight: 900;
             position: relative;
             z-index: 1;
+            text-shadow: 0 0 10px rgba(93, 249, 192, 0.5);
         }
         .mall-staking-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--cool-white);
             margin-bottom: 15px;
             position: relative;
             z-index: 1;
+            font-weight: 700;
         }
         .new-features-card .benefit-description {
             font-size: 1.2rem;
@@ -654,7 +656,7 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 60px;
             backdrop-filter: blur(10px);
         }
@@ -981,13 +983,14 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto 60px;
             backdrop-filter: blur(10px);
-            background-image: url('https://i.postimg.cc/fW4x7cVk/blockchain-bg.jpg');
+            background-image: url('https://i.postimg.cc/prZRGMn7/pexels-jakubzerdzicki-30572289.jpg');
             background-size: cover;
             background-position: center;
             background-blend-mode: overlay;
+            position: relative;
         }
         .blockchain-card::before {
             content: '';
@@ -1076,6 +1079,29 @@
         .carousel-dot-liquid.active {
             box-shadow: 0 0 10px rgba(93, 249, 192, 0.5);
         }
+        
+        /* GLOBAL SHIPPING CARD */
+        .global-shipping-card {
+            grid-column: 1 / -1;
+            width: 90%;
+            max-width: 1260px;
+            margin: 0 auto;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
 
         @media (min-width: 768px) {
             .cards-container {
@@ -1113,10 +1139,10 @@
                 font-size: 1.6rem;
             }
             .new-features-card .benefit-title {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
             .mall-staking-title {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
             .countdown-value {
                 font-size: 2.5rem;
@@ -1135,6 +1161,9 @@
             }
             .merchant-features-container {
                 max-height: 350px;
+            }
+            .zarraz-card, .blockchain-card {
+                max-width: 600px;
             }
         }
         @media (max-width: 992px) {
@@ -1192,6 +1221,9 @@
             }
             .merchant-features-container {
                 max-height: 300px;
+            }
+            .zarraz-card, .blockchain-card {
+                max-width: 550px;
             }
         }
         @media (max-width: 768px) {
@@ -1264,10 +1296,10 @@
                 font-size: 1.8rem;
             }
             .new-features-card .benefit-title {
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
             .mall-staking-title {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             .new-features-card .benefit-description {
                 font-size: 1.0rem;
@@ -1339,6 +1371,9 @@
             .merchant-features-container {
                 max-height: 250px;
             }
+            .zarraz-card, .blockchain-card {
+                max-width: 500px;
+            }
         }
         @media (max-width: 576px) {
             .hero-coming-soon {
@@ -1380,10 +1415,10 @@
                 font-size: 1.0rem;
             }
             .new-features-card .benefit-title {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
             .mall-staking-title {
-                font-size: 1.0rem;
+                font-size: 1.1rem;
             }
             .new-features-card .benefit-description {
                 font-size: 0.9rem;
@@ -1454,6 +1489,9 @@
             .merchant-features-container {
                 max-height: 220px;
             }
+            .zarraz-card, .blockchain-card {
+                max-width: 350px;
+            }
         }
         @media (max-width: 480px) {
             .hero-coming-soon {
@@ -1496,10 +1534,10 @@
                 font-size: 1.6rem;
             }
             .new-features-card .benefit-title {
-                font-size: 1.1rem;
+                font-size: 1.3rem;
             }
             .mall-staking-title {
-                font-size: 0.9rem;
+                font-size: 1.0rem;
             }
             .new-features-card .benefit-description {
                 font-size: 0.8rem;
@@ -1543,6 +1581,9 @@
             }
             .merchant-features-container {
                 max-height: 200px;
+            }
+            .zarraz-card, .blockchain-card {
+                max-width: 300px;
             }
         }
     </style>
@@ -2027,7 +2068,7 @@
                 <h3 class="benefit-title">24/7 Global Support System</h3>
                 <p class="benefit-description">Shoppers and merchants get round-the-clock assistance through live chat, AI, and email channels. Critical issues are escalated to human teams for swift resolution, ensuring trust and reliability.</p>
             </div>
-            <div class="benefit-card fade-in">
+            <div class="global-shipping-card fade-in">
                 <div class="icon-container">
                     <i class="fas fa-shipping-fast"></i>
                 </div>
@@ -2049,7 +2090,9 @@
                 </div>
                 <div class="carousel-card">
                     <div class="blockchain-card">
-                        <img src="https://i.postimg.cc/fW4x7cVk/blockchain-bg.jpg" alt="Blockchain Technology" class="blockchain-logo">
+                        <div class="icon-container" style="position: relative; z-index: 1;">
+                            <i class="fas fa-link"></i>
+                        </div>
                         <h3 class="benefit-title">New to Blockchain Technology?</h3>
                         <p class="benefit-description">Blockchain is a decentralized digital ledger that records transactions across many computers. It's secure, transparent, and revolutionizes how we conduct business online.</p>
                         <a href="#" class="zarraz-button">Discover Now</a>
