@@ -41,7 +41,7 @@
             font-size: 18px;
             background: var(--dark-bg);
             color: #fff;
-            overflow-x: hidden;
+            overflow-x prolet;
             min-height: 100vh;
             line-height: 1.7;
             position: relative;
@@ -174,16 +174,96 @@
             font-weight: 500;
             padding: 0 10px;
         }
-        .features-heading {
-            font-size: 2.8rem;
-            margin: 30px 0;
-            background: linear-gradient(45deg, var(--ocean-blue), var(--lime-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: textGlow 3s ease-in-out infinite alternate;
+        .new-features-card {
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.1);
+            background-image: url('https://i.postimg.cc/htjczDsf/5c1075e2-cb97-461d-8e82-7be6320c72f2-shutterstock-1122353915.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-blend-mode: luminosity;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .new-features-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+        }
+        .new-features-card .icon-container {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: var(--lime-green);
+            position: relative;
+            z-index: 1;
+        }
+        .new-features-card .benefit-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--lime-green);
             font-weight: 800;
-            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+        .mall-staking-title {
+            font-size: 1.4rem;
+            color: var(--cool-white);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .new-features-card .benefit-description {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            color: var(--cool-white);
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+        .new-features-card .zarraz-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--ocean-blue), var(--vibrant-orange));
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        .new-features-card .zarraz-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(59, 30, 255, 0.3);
         }
         .signup-counter {
             background: rgba(255, 255, 255, 0.1);
@@ -203,10 +283,9 @@
             margin-bottom: 5px;
         }
         .payment-gateways {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
             max-width: 900px;
             margin: 50px auto;
             padding: 30px;
@@ -214,12 +293,14 @@
             border-radius: 20px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            justify-items: center;
         }
         .payment-gateways h3 {
-            width: 100%;
+            grid-column: 1 / -1;
             margin-bottom: 20px;
             color: var(--lime-green);
             font-size: 1.8rem;
+            text-align: center;
         }
         .payment-method {
             display: flex;
@@ -228,8 +309,8 @@
             gap: 10px;
         }
         .payment-logo {
-            width: 80px;
-            height: 50px;
+            width: 70px;
+            height: 40px;
             background: white;
             border-radius: 8px;
             display: flex;
@@ -243,7 +324,7 @@
             max-height: 100%;
         }
         .payment-name {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--cool-white);
             text-align: center;
         }
@@ -381,6 +462,7 @@
             padding: 30px;
             margin: 40px auto 60px;
             max-width: 700px;
+            width: 100%;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -445,8 +527,8 @@
         }
         .chat-bubble {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            top: 20px;
+            right: 20px;
             width: 60px;
             height: 60px;
             background: linear-gradient(45deg, var(--ocean-blue), var(--vibrant-orange));
@@ -822,6 +904,12 @@
             .benefit-title {
                 font-size: 1.6rem;
             }
+            .new-features-card .benefit-title {
+                font-size: 1.6rem;
+            }
+            .mall-staking-title {
+                font-size: 1.2rem;
+            }
             .countdown-value {
                 font-size: 2.5rem;
             }
@@ -831,8 +919,11 @@
             .countdown-heading {
                 font-size: 1.8rem;
             }
-            .features-heading {
-                font-size: 2.5rem;
+            .new-features-card {
+                width: 80%;
+            }
+            .chat-bubble {
+                right: 20px;
             }
         }
         @media (max-width: 992px) {
@@ -851,9 +942,12 @@
             .coming-soon {
                 font-size: 2.0rem;
             }
-            .benefit-card, .zarraz-card {
+            .benefit-card, .zarraz-card, .new-features-card {
                 padding: 30px 20px;
                 min-height: 300px;
+            }
+            .new-features-card {
+                min-height: 220px;
             }
             .countdown-heading {
                 font-size: 1.6rem;
@@ -879,8 +973,11 @@
                 left: 0;
                 top: 0;
             }
-            .features-heading {
-                font-size: 2.2rem;
+            .new-features-card {
+                width: 80vw;
+            }
+            .chat-bubble {
+                right: 15px;
             }
         }
         @media (max-width: 768px) {
@@ -942,6 +1039,29 @@
                 padding: 30px 20px;
                 min-height: 300px;
             }
+            .new-features-card {
+                width: 80vw;
+                padding: 30px 20px;
+                min-height: 200px;
+            }
+            .new-features-card .icon-container {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+            }
+            .new-features-card .benefit-title {
+                font-size: 1.4rem;
+            }
+            .mall-staking-title {
+                font-size: 1.1rem;
+            }
+            .new-features-card .benefit-description {
+                font-size: 1.0rem;
+            }
+            .new-features-card .zarraz-button {
+                padding: 12px 25px;
+                font-size: 1.1rem;
+            }
             .token-flow {
                 padding: 10px 0;
                 margin: 40px 0 60px;
@@ -971,8 +1091,36 @@
                 width: 8px;
                 height: 8px;
             }
-            .features-heading {
-                font-size: 1.8rem;
+            .payment-gateways {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+                padding: 20px;
+            }
+            .payment-logo {
+                width: 60px;
+                height: 35px;
+            }
+            .payment-name {
+                font-size: 0.7rem;
+            }
+            .referral-box {
+                flex-direction: column;
+            }
+            .referral-box input {
+                width: 100%;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            .referral-box button {
+                width: 100%;
+                border-radius: 10px;
+            }
+            .chat-bubble {
+                top: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
             }
         }
         @media (max-width: 576px) {
@@ -1012,7 +1160,20 @@
                 font-size: 1.3rem;
             }
             .benefit-description {
-                font-size: 1rem;
+                font-size: 1.0rem;
+            }
+            .new-features-card .benefit-title {
+                font-size: 1.2rem;
+            }
+            .mall-staking-title {
+                font-size: 1.0rem;
+            }
+            .new-features-card .benefit-description {
+                font-size: 0.9rem;
+            }
+            .new-features-card .zarraz-button {
+                padding: 10px 20px;
+                font-size: 1.0rem;
             }
             .signup-form {
                 padding: 25px 20px;
@@ -1027,20 +1188,18 @@
             .countdown-heading {
                 font-size: 1.2rem;
             }
-            .zarraz-button {
-                padding: 12px 25px;
-                font-size: 1.1rem;
-            }
             .zarraz-logo {
                 max-width: 80px;
-            }
-            .features-heading {
-                font-size: 1.6rem;
             }
             .benefit-card {
                 width: 80vw;
                 padding: 25px 15px;
                 min-height: 280px;
+            }
+            .new-features-card {
+                width: 80vw;
+                padding: 25px 15px;
+                min-height: 180px;
             }
             .flow-step {
                 width: calc(100vw - 60px);
@@ -1055,6 +1214,25 @@
             }
             .flow-step .benefit-title {
                 font-size: 1.3rem;
+            }
+            .payment-gateways {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+                padding: 15px;
+            }
+            .payment-logo {
+                width: 50px;
+                height: 30px;
+            }
+            .payment-name {
+                font-size: 0.65rem;
+            }
+            .chat-bubble {
+                top: 10px;
+                right: 10px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
             }
         }
         @media (max-width: 480px) {
@@ -1087,6 +1265,29 @@
                 padding: 20px 10px;
                 min-height: 260px;
             }
+            .new-features-card {
+                width: 80vw;
+                padding: 20px 10px;
+                min-height: 160px;
+            }
+            .new-features-card .icon-container {
+                width: 40px;
+                height: 40px;
+                font-size: 1.6rem;
+            }
+            .new-features-card .benefit-title {
+                font-size: 1.1rem;
+            }
+            .mall-staking-title {
+                font-size: 0.9rem;
+            }
+            .new-features-card .benefit-description {
+                font-size: 0.8rem;
+            }
+            .new-features-card .zarraz-button {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
             .flow-step {
                 width: calc(100vw - 60px);
                 min-width: calc(100vw - 60px);
@@ -1100,6 +1301,25 @@
             }
             .flow-step .benefit-title {
                 font-size: 1.2rem;
+            }
+            .payment-gateways {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+                padding: 10px;
+            }
+            .payment-logo {
+                width: 45px;
+                height: 25px;
+            }
+            .payment-name {
+                font-size: 0.6rem;
+            }
+            .chat-bubble {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -1121,6 +1341,19 @@
             borderless transactions, and crypto cashbacks. Experience the future of e-commerce
             where every purchase is secure, rewarding, and globally accessible.
         </p>
+        
+        <!-- New Features Card -->
+        <div class="new-features-card fade-in">
+            <h3 class="benefit-title">New Features</h3>
+            <h4 class="mall-staking-title">Mall Staking</h4>
+            <div class="icon-container">
+                <i class="fas fa-coins"></i>
+            </div>
+            <p class="benefit-description">
+                Stake your Zarraz Dollar on your Mall Wallet and enjoy staking rewards up to 60% per annum USDT worth of Staked $ZD.
+            </p>
+            <a href="#" id="stake-now-btn" class="zarraz-button">Stake Now</a>
+        </div>
         
         <!-- Signup Counter -->
         <div class="signup-counter fade-in">
@@ -1552,6 +1785,13 @@
                         behavior: 'smooth'
                     });
                 });
+            });
+
+            // Stake Now button popup
+            const stakeNowBtn = document.getElementById('stake-now-btn');
+            stakeNowBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('Mall staking will be available after launch');
             });
         });
         
