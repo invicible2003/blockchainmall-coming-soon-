@@ -41,7 +41,7 @@
             font-size: 18px;
             background: var(--dark-bg);
             color: #fff;
-            overflow-x prolet;
+            overflow-x: hidden;
             min-height: 100vh;
             line-height: 1.7;
             position: relative;
@@ -207,7 +207,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.2); /* Increased visibility to 80% */
             z-index: 0;
         }
         .new-features-card .icon-container {
@@ -888,6 +888,214 @@
             opacity: 1;
             transform: translateY(0);
         }
+        
+        /* NEW STYLES FOR MERCHANT FEATURES */
+        .merchant-features-container {
+            max-height: 400px;
+            overflow-y: auto;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            position: relative;
+        }
+        .feature-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .feature-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateX(5px);
+        }
+        .feature-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--lime-green);
+            margin: 0;
+        }
+        .feature-toggle {
+            color: var(--lime-green);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        .feature-toggle.active {
+            transform: rotate(180deg);
+        }
+        .feature-description-popup {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-top: 10px;
+            padding: 0 15px;
+        }
+        .feature-description-popup.open {
+            max-height: 500px;
+            padding: 15px;
+        }
+        .feature-description {
+            font-size: 0.95rem;
+            color: var(--cool-white);
+            line-height: 1.5;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--lime-green);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px;
+            border-radius: 20px;
+            margin: 0 auto;
+            width: 140px;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(5px);
+            z-index: 2;
+        }
+        
+        /* NEW STYLES FOR BLOCKCHAIN TECH CARD */
+        .blockchain-card {
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 600px;
+            margin: 0 auto 60px;
+            backdrop-filter: blur(10px);
+            background-image: url('https://i.postimg.cc/fW4x7cVk/blockchain-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        .blockchain-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 0;
+            border-radius: 20px;
+        }
+        .blockchain-logo {
+            max-width: 120px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        .cards-carousel {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto 60px;
+            position: relative;
+        }
+        .cards-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 20px 0;
+            scroll-padding: 0 20px;
+            gap: 30px;
+            padding-bottom: 30px;
+        }
+        .cards-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .cards-container::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .cards-container::-webkit-scrollbar-thumb {
+            background: var(--lime-green);
+            border-radius: 10px;
+        }
+        .carousel-card {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: calc(100% - 40px);
+            min-width: calc(100% - 40px);
+            margin: 0 20px;
+            position: relative;
+        }
+        .carousel-dots-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .carousel-dot-liquid {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-dot-liquid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--lime-green);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+        .carousel-dot-liquid.active::before {
+            transform: scale(1);
+        }
+        .carousel-dot-liquid.active {
+            box-shadow: 0 0 10px rgba(93, 249, 192, 0.5);
+        }
+
+        @media (min-width: 768px) {
+            .cards-container {
+                padding: 20px;
+            }
+            .carousel-card {
+                width: calc(50% - 30px);
+                min-width: calc(50% - 30px);
+            }
+            .cards-container {
+                gap: 40px;
+            }
+        }
+        @media (min-width: 1200px) {
+            .carousel-card {
+                width: calc(50% - 40px);
+                min-width: calc(50% - 40px);
+            }
+        }
+        
         @media (max-width: 1200px) {
             .hero-coming-soon {
                 font-size: 3.5rem;
@@ -925,6 +1133,9 @@
             .chat-bubble {
                 right: 20px;
             }
+            .merchant-features-container {
+                max-height: 350px;
+            }
         }
         @media (max-width: 992px) {
             .hero-coming-soon {
@@ -942,7 +1153,7 @@
             .coming-soon {
                 font-size: 2.0rem;
             }
-            .benefit-card, .zarraz-card, .new-features-card {
+            .benefit-card, .zarraz-card, .new-features-card, .blockchain-card {
                 padding: 30px 20px;
                 min-height: 300px;
             }
@@ -952,7 +1163,7 @@
             .countdown-heading {
                 font-size: 1.6rem;
             }
-            .zarraz-logo {
+            .zarraz-logo, .blockchain-logo {
                 max-width: 120px;
             }
             .roadmap {
@@ -978,6 +1189,9 @@
             }
             .chat-bubble {
                 right: 15px;
+            }
+            .merchant-features-container {
+                max-height: 300px;
             }
         }
         @media (max-width: 768px) {
@@ -1023,7 +1237,7 @@
                 min-width: 60px;
                 padding: 15px 10px;
             }
-            .zarraz-logo {
+            .zarraz-logo, .blockchain-logo {
                 max-width: 100px;
             }
             .app-badges {
@@ -1122,6 +1336,9 @@
                 height: 50px;
                 font-size: 1.3rem;
             }
+            .merchant-features-container {
+                max-height: 250px;
+            }
         }
         @media (max-width: 576px) {
             .hero-coming-soon {
@@ -1188,7 +1405,7 @@
             .countdown-heading {
                 font-size: 1.2rem;
             }
-            .zarraz-logo {
+            .zarraz-logo, .blockchain-logo {
                 max-width: 80px;
             }
             .benefit-card {
@@ -1233,6 +1450,9 @@
                 width: 45px;
                 height: 45px;
                 font-size: 1.2rem;
+            }
+            .merchant-features-container {
+                max-height: 220px;
             }
         }
         @media (max-width: 480px) {
@@ -1320,6 +1540,9 @@
                 width: 40px;
                 height: 40px;
                 font-size: 1.1rem;
+            }
+            .merchant-features-container {
+                max-height: 200px;
             }
         }
     </style>
@@ -1440,16 +1663,362 @@
                     <i class="fas fa-tachometer-alt"></i>
                 </div>
                 <h3 class="benefit-title">Merchant Dashboard with 37 Advanced Features</h3>
-                <ul class="benefit-description">
-                    <li>Competitive Intelligence Panel</li>
-                    <li>Product Heatmaps</li>
-                    <li>AI Content Generator</li>
-                    <li>Wallet Automation</li>
-                    <li>Reward Campaign Tools</li>
-                    <li>Real-Time Chat with Customers</li>
-                    <li>Tax & Global Shipping Assistant</li>
-                    <li>and more tailored for serious e-commerce growth.</li>
-                </ul>
+                <div class="merchant-features-container">
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Competitive Intelligence Panel</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Analyze competitors' pricing, product offerings, and promotions to optimize your strategy.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Product Heatmaps</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Visualize customer interactions and engagement with your products to optimize placement.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">AI Content Generator</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Automatically generate product descriptions, titles, and marketing content using AI.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Wallet Automation</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Automate cryptocurrency transactions, conversions, and payouts with smart rules.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Reward Campaign Tools</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Create and manage custom loyalty programs and reward campaigns for customers.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Real-Time Chat with Customers</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Engage with shoppers instantly through integrated chat functionality.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Tax & Global Shipping Assistant</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Automatically calculate taxes and shipping costs for international orders.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Inventory Forecasting</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Predict inventory needs based on sales patterns and market trends.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Sales Analytics Dashboard</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Comprehensive analytics for sales performance, customer behavior, and revenue.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Customer Segmentation</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Group customers based on behavior for targeted marketing campaigns.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Automated Email Marketing</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Create and schedule email campaigns based on customer actions.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Multi-Channel Integration</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Connect with other sales channels and sync inventory automatically.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Returns Management System</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Streamline the returns process with automated workflows and tracking.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Discount Code Generator</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Create custom discount codes with specific rules and expiration dates.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Review Management</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Monitor, respond to, and analyze customer reviews in one place.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Fraud Detection System</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">AI-powered tools to identify and prevent fraudulent transactions.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Subscription Management</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Manage recurring payments and subscription-based products.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Affiliate Performance Tracking</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Monitor affiliate sales, commissions, and performance metrics.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Product Bundling</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Create product bundles and special offers to increase average order value.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Abandoned Cart Reports</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Detailed analytics on abandoned carts to optimize recovery strategies.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Multi-Currency Pricing</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Set and manage prices in multiple currencies with automatic conversion.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">SEO Optimization Tools</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Optimize product listings for search engines with built-in recommendations.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Social Media Integration</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Connect social media accounts and schedule posts directly from the dashboard.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Customer Loyalty Program</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Create and manage tiered loyalty programs to reward repeat customers.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Automated Inventory Alerts</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Get notified when stock levels are low or when items need restocking.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Product Comparison Tool</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Enable customers to compare products side-by-side with customizable parameters.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Wishlist Management</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Track and analyze customer wishlists to identify popular products.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Sales Funnel Visualization</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Visualize your sales funnel to identify drop-off points and optimize conversion.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Customer Support Ticket System</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Manage customer support requests and track resolution times.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Product Video Integration</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Add and manage product videos directly in your listings.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Advanced Search Filters</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Create custom search filters to help customers find products faster.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Bulk Product Import/Export</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Import or export large numbers of products using CSV files.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Multi-Language Support</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Translate your store into multiple languages to reach global customers.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Performance Benchmarking</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Compare your store performance against industry benchmarks.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Automated Tax Filing</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Automatically calculate and file sales taxes for different jurisdictions.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Shipping Label Generator</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Generate shipping labels directly from the dashboard for multiple carriers.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Customer Lifetime Value Analysis</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Analyze the long-term value of customers to inform retention strategies.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">GDPR Compliance Tools</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Ensure compliance with data protection regulations through built-in tools.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-header">
+                            <span class="feature-title">Product Customization Options</span>
+                            <i class="fas fa-chevron-down feature-toggle"></i>
+                        </div>
+                        <div class="feature-description-popup">
+                            <p class="feature-description">Offer personalized products with custom options and variations.</p>
+                        </div>
+                    </div>
+                    <div class="scroll-indicator" id="scroll-indicator">
+                        <i class="fas fa-arrow-down"></i> Scroll for more
+                    </div>
+                </div>
             </div>
             <div class="benefit-card fade-in">
                 <div class="icon-container">
@@ -1464,6 +2033,32 @@
                 </div>
                 <h3 class="benefit-title">Global Shipping at Fair Rates + Free Shipping Promotions</h3>
                 <p class="benefit-description">Affordable international shipping negotiated through strategic logistics partners. Regular free shipping campaigns on select products, brands, or during special promotions. Merchants can also offer $ZD-funded shipping discounts to increase sales.</p>
+            </div>
+        </div>
+        
+        <!-- Cards Carousel -->
+        <div class="cards-carousel fade-in">
+            <div class="cards-container">
+                <div class="carousel-card">
+                    <div class="zarraz-card">
+                        <img src="https://i.postimg.cc/T1q2xJK6/Zarraz-Dollar-logo.png" alt="Zarraz Dollar Logo" class="zarraz-logo">
+                        <h3 class="benefit-title">Are You New to Zarraz Dollar?</h3>
+                        <p class="benefit-description">Discover the power of ZarrazDollar ($ZD), the native utility token driving the BlockchainMall ecosystem.</p>
+                        <a href="https://zarrazdollar.com" class="zarraz-button">Learn More</a>
+                    </div>
+                </div>
+                <div class="carousel-card">
+                    <div class="blockchain-card">
+                        <img src="https://i.postimg.cc/fW4x7cVk/blockchain-bg.jpg" alt="Blockchain Technology" class="blockchain-logo">
+                        <h3 class="benefit-title">New to Blockchain Technology?</h3>
+                        <p class="benefit-description">Blockchain is a decentralized digital ledger that records transactions across many computers. It's secure, transparent, and revolutionizes how we conduct business online.</p>
+                        <a href="#" class="zarraz-button">Discover Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots-container">
+                <div class="carousel-dot-liquid active"></div>
+                <div class="carousel-dot-liquid"></div>
             </div>
         </div>
         
@@ -1522,16 +2117,9 @@
             </div>
         </div>
         
-        <div class="zarraz-card fade-in">
-            <img src="https://i.postimg.cc/T1q2xJK6/Zarraz-Dollar-logo.png" alt="Zarraz Dollar Logo" class="zarraz-logo">
-            <h3 class="benefit-title">Are You New to Zarraz Dollar?</h3>
-            <p class="benefit-description">Discover the power of ZarrazDollar ($ZD), the native utility token driving the BlockchainMall ecosystem.</p>
-            <a href="https://zarrazdollar.com" class="zarraz-button">Learn More</a>
-        </div>
-        
         <!-- Payment Gateways Section -->
         <div class="payment-gateways fade-in">
-            <h3>Supported Payment Gateways</h3>
+            <h3>Other Supported Payment Gateways</h3>
             <div class="payment-method">
                 <div class="payment-logo">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard">
@@ -1793,6 +2381,61 @@
                 event.preventDefault();
                 alert('Mall staking will be available after launch');
             });
+            
+            // Merchant features dropdown functionality
+            const featureToggles = document.querySelectorAll('.feature-toggle');
+            featureToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const popup = this.closest('.feature-item').querySelector('.feature-description-popup');
+                    popup.classList.toggle('open');
+                });
+            });
+            
+            // Merchant features scroll indicator
+            const featuresContainer = document.querySelector('.merchant-features-container');
+            const scrollIndicator = document.getElementById('scroll-indicator');
+            
+            if (featuresContainer && scrollIndicator) {
+                featuresContainer.addEventListener('scroll', function() {
+                    const scrollBottom = this.scrollHeight - this.scrollTop - this.clientHeight;
+                    
+                    if (scrollBottom < 50) {
+                        scrollIndicator.style.opacity = '0';
+                        scrollIndicator.style.pointerEvents = 'none';
+                    } else {
+                        scrollIndicator.style.opacity = '1';
+                        scrollIndicator.style.pointerEvents = 'all';
+                    }
+                });
+            }
+            
+            // Cards carousel navigation
+            const cardsContainer = document.querySelector('.cards-container');
+            const liquidDots = document.querySelectorAll('.carousel-dot-liquid');
+            const carouselCards = document.querySelectorAll('.carousel-card');
+            
+            if (cardsContainer && liquidDots.length > 0) {
+                cardsContainer.addEventListener('scroll', function() {
+                    const scrollLeft = this.scrollLeft;
+                    const cardWidth = carouselCards[0].offsetWidth + 30; // Card width + gap
+                    const activeIndex = Math.round(scrollLeft / cardWidth);
+                    
+                    liquidDots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === activeIndex);
+                    });
+                });
+                
+                liquidDots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        const cardWidth = carouselCards[0].offsetWidth + 30;
+                        cardsContainer.scrollTo({
+                            left: index * cardWidth,
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            }
         });
         
         function copyRefLink() {
